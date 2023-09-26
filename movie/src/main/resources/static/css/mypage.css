@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+#title {
+	margin-left: 120px;
+}
+
+#modal1, #modal2, #modal3, #modal4 {
+	display: none;
+	position: fixed;
+	top: 100px;
+	left: 50px;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#modal h2 {
+	margin: 0;
+}
+
+#modal1 button, #modal2 button, #modal3 button, #modal4 button, #modal5 button
+	{
+	display: inline-block;
+	width: 100px;
+	margin-left: calc(100% - 100px - 10px);
+}
+
+.modal-header {
+	min-height: 16.43px;
+	padding: 20px;
+	border-bottom: 1px solid #e5e5e5
+}
+
+.modal-title {
+	margin: 0;
+	line-height: 1;
+}
+
+.modal-code{
+	padding: 20px;
+	
+}
+
+.modal_content, .modal_content1 {
+	width: 700px;
+	height: 500px;
+	max-width: 700px;
+	position: relative;
+	overflow: hidden;
+	margin: 100px auto;
+	background: #fff;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 1px solid #999;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 6px;
+	outline: 0;
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, .5)
+	}
+
+.modal_content1 {
+	height: 250px;
+	
+}
+
+.modal-body {
+	position: relative;
+	padding: 30px;
+	height:300px;
+	max-height: 300px;
+	overflow-y: auto;
+		border-top: 1px solid rgba(0, 0, 0, .2); 
+}
+
+.modal-foot {
+	border-top: 1px solid rgba(0, 0, 0, .2);
+	position: sticky;
+	background-color: #fff;
+}
+
+
+
+#modal_open_btn1 {
+	
+	margin-left: 50px;
+}
+
+
+
+/* 등록버튼 in 모달 */
+.okay {
+	background-color: #209BF2;
+	color: white;
+	position: absolute;
+	top: 90px;
+	right:80px;
+}
+
+.code {
+	width: 390px;
+	height: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#submit_btn1 {
+	top: 37px;
+	left: -120px;
+}
+
+
+#close_btn1 {
+	position: absolute;
+	top: 140px;
+	left: -300px;
+}
+
+#close_btn2, #close_btn3 {
+	position: absolute;
+	bottom: 20px;
+	left: -300px;
+}
+
+
+.modal_layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
+
+
+
+table {
+	margin-left: 150px;
+}
+
+td {
+	height: 50px;
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+#index {
+	width: 300px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#content {
+	width: 800px;
+}
+
+button {
+	border-radius: 2px;
+	border: none;
+	height: 30px;
+	width: 150px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.mypage_table {
+	width: 65%;
+	margin: 20px auto 0;
+}

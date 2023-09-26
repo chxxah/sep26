@@ -1,0 +1,109 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	align-items: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #FFFFFF;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+.logo {
+	display: block;
+	margin: 50px auto;
+}
+
+.signin_wrap {
+	margin: 30px auto;
+	border: 1px solid #C6C6C6;
+	width: 500px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.input-area {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.form-floating {
+	margin: 0 auto; /* 중앙 정렬을 위해 추가 */
+	margin-bottom: 20px;
+}
+
+button.btn-lg {
+	padding: 0.6em 1em;
+	border-radius: 0.25em;
+	border: gray;
+	font-weight: 400;
+	box-shadow: var(- -shadow-1);
+	background-color: #209BF2;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.button-area {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.error_message {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: -.5px;
+	color: #ff003e;
+	vertical-align: middle;
+	margin-left: 85px;
+}
+
+.login_error_wrap {
+	clear: both;
+}
+
+.find_wrap li {
+	position: relative;
+	display: inline-block;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.find {
+	text-align: center;
+	margin-right: 45px;
+	margin-top: 50px;
+}
+
+.find_wrap li a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #888;
+}
+
+.find_wrap li+li {
+	padding-left: 28px;
+}
+
+.find_wrap li+li::before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 12px;
+	width: 1px;
+	height: 12px;
+	border-radius: 0.5px;
+	background-color: #dadada;
+}
+
+.aside_list {
+	margin-top: 16px;
+}

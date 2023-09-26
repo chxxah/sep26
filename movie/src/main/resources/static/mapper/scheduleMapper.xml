@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.web.schedule.ScheduleDAO">
+
+	<select id="schedule1" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '1' AND s.th_idx = i.th_idx AND c.mv_idx= '1';
+	</select>
+	<select id="schedule2" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '2' AND s.th_idx = i.th_idx AND c.mv_idx= '2';
+	</select>
+	<select id="schedule3" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '3' AND s.th_idx = i.th_idx AND c.mv_idx= '3';
+	</select>
+	<select id="schedule4" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '4' AND s.th_idx = i.th_idx AND c.mv_idx= '4';
+	</select>
+	<select id="schedule5" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '5' AND s.th_idx = i.th_idx AND c.mv_idx= '5';
+	</select>
+	<select id="schedule6" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '6' AND s.th_idx = i.th_idx AND c.mv_idx= '6';
+	</select>
+	<select id="schedule7" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '7' AND s.th_idx = i.th_idx AND c.mv_idx= '7';
+	</select>
+	<select id="schedule8" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '8' AND s.th_idx = i.th_idx AND c.mv_idx= '8';
+	</select>
+	<select id="schedule9" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '9' AND s.th_idx = i.th_idx AND c.mv_idx= '9';
+	</select>
+	<select id="schedule10" resultType="Map">
+		SELECT
+		TIME_FORMAT(ms_stime,
+		'%H:%i') as ms_stime,
+		TIME_FORMAT(ms_etime, '%H:%i') as ms_etime,
+		c.mv_code,th_area, th_city, th_kind,th_seatcnt, mc_director,mc_actor
+		FROM movie_schedule s
+		JOIN theater_info i
+		JOIN movie_cast c
+		WHERE
+		s.mv_idx= '10' AND s.th_idx = i.th_idx AND c.mv_idx= '10';
+	</select>
+
+	<select id="scheduleinfo" resultType="Map">
+		SELECT mv_name, mv_poster
+		FROM movie_info
+		ORDER BY mv_idx
+
+	</select>
+
+</mapper>

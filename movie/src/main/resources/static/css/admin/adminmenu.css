@@ -1,0 +1,91 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'GangwonState';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body, nav {
+    margin: 0;
+    padding: 0;
+    font-family: 'LINESeedKR-Bd';
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+   /*  background-color: #f5f4f5; */
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+}
+
+.menu{
+	position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 100vh;
+    background-color: #ebecf0;
+    float: left;
+    overflow: hidden;
+    width: 200px; /* 항상 큰 상태로 유지 */
+}
+
+.hi {
+	width: 190px;
+    margin: 5px;
+    margin-bottom: 50px;
+     margin-top: 50px;
+    color: gray;
+    line-height: 30px;
+    padding-left: 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.menu-item{
+    width: 190px;
+    margin: 5px;
+    margin-left: 15px;
+    color: gray;
+    line-height: 60px;
+    padding-left: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.menu-item i{
+    margin-top: -5px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.menu-item:hover {
+	width: 190px;
+	line-height: 60px;
+	color: #209BF2;
+}
+
+.main{
+    margin-left: 200px; /* 메뉴가 항상 큰 상태로 유지되므로 여백 조정 */
+    width: calc(100% - 200px);
+    height: 100vh;
+    float: right;
+}
+
+.admin_table {
+	padding: 100px;
+}

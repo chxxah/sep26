@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.web.detail.DetailDAO">
+
+	<select id="detail"> SELECT i.mv_idx, mv_name, mv_nameen, mv_country,
+		mv_maker, mv_grade, mv_poster, i.mv_code, mv_bgimg, mv_sdate,
+		mv_runtime, mv_sinop, mv_genre, mv_gradeimg , a.au_acccnt,a.au_status,
+		a.au_trailer, a.au_img , c.mc_director, c.mc_actor, c.mc_diphoto,
+		c.mc_acphoto FROM movie_info i JOIN movie_audience a JOIN movie_cast c
+		WHERE i.mv_code=#{mv_code} AND a.mv_code=#{mv_code} AND
+		c.mv_code=#{mv_code} </select>
+
+
+	<select id="movie" parameterType="String" resultType="String">
+		SELECT
+		mv_code
+		FROM movie_info
+		WHERE mv_name=#{mv_name}
+	</select>
+
+
+
+</mapper>

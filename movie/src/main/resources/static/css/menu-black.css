@@ -1,0 +1,409 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'GangwonState';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Rg.woff2') format('woff2');
+    font-style: normal;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.menunavbar {
+	margin: 0;
+	padding: 0;
+	height: 135px;
+	font-family: 'LINESeedKR-Rg';
+	background-color: #1D1C1C;
+	box-sizing: content-box; 
+}
+
+.menu {
+	top: 0;
+	left: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 50;
+	overflow: hidden;
+	box-sizing: border-box;
+	background-color: #1D1C1C;
+}
+
+.menu_header {
+	width: 100%;
+	height: 80px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid white;
+	min-width: 1200px;
+	box-sizing: content-box; 
+}
+
+.header_logo {
+	width: 40%;
+	float: left;
+	display: grid;
+	padding-top: 18px;
+	padding-left: 200px;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+.header_logo img {
+	height: 60px;
+}
+
+.header_wrap {
+	width: 60%;
+	height: 100%;
+	float: right;
+	padding-right: 200px;
+	box-sizing: border-box;
+	color: white;
+}
+
+.aside {
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+
+.aside_list {
+	display: flex;
+	justify-content: flex-end; 
+	align-items: center;
+	height: 100%;
+}
+
+.aside_list li {
+	list-style: none;
+	float: left;
+	text-align: center;
+	width: 120px;
+	height: 60px;
+	display: grid;
+}
+
+.aside_list li:hover {
+	cursor: pointer;
+}
+
+.aside_list .icon {
+	font-size: 28px;
+}
+
+.aside_list .text {
+	font-size: 14px;
+}
+
+.menu_map {
+	color: white;
+	width: 35%;
+	float: left;
+	padding-left: 200px;
+	box-sizing: border-box;
+}
+
+.menu_map .icon {
+	height: 45px;
+	line-height: 45px !important;
+	font-size: 25px;
+	font-weight: bolder;
+	box-sizing: border-box;
+}
+
+.menu_map .icon:hover {
+	cursor: pointer;
+}
+
+
+/* 사이드메뉴시작 */
+.menu_side {
+	color: white;
+	width: 65%;
+	margin: 0;
+	float: right;
+	padding-right: 200px;
+	box-sizing: border-box;
+	height: 45px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	text-align: center;
+}
+
+.menu_wrap {
+	display: flex;
+	justify-content: right;
+	margin: 0;
+}
+
+.menu_wrap .list {
+	position: relative;
+	font-size: 13pt;
+	list-style: none;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.menu_wrap .text {
+	display: inline-block;
+	font-weight: bold;
+	width: 120px;
+	height: 45px;
+	line-height: 45px;
+}
+
+.menu_wrap .text:hover {
+	border-bottom: 3px solid #F27720;
+	color: #F27720;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+/* 전체메뉴 */
+#c_mallbox {
+	width: 100%;
+	height: 400px;
+	background-color: #1D1C1C;
+	padding: 0 230px 0 200px;
+	box-sizing: border-box;
+	font-family: 'LINESeedKR-Rg';
+	color: white;
+	display: none;
+	position: absolute;
+	opacity: 0.95;
+	z-index: 100;
+	overflow: hidden;
+min-width: 1500px;
+}
+
+.c_topul {
+	margin: 0;
+	padding: 25px 0;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+.c_topli {
+	list-style: none;
+	float: left;
+	width: calc(100%/7);
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.c_topli:hover {
+	cursor: pointer;
+}	
+
+.c_topli > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.c_topli > ul > li {
+	list-style: none;
+	height: 50px;
+	line-height: 50px;
+	font-size: 11pt;
+	font-weight: normal;
+}
+
+/* 통합검색 */
+
+#m_mallbox {
+	z-index: 100;
+	display: none;
+	width: 100%;
+	height: 400px;
+	background-color: #1D1C1C;
+	padding: 0 230px 0 200px;
+	box-sizing: border-box;
+	font-family: 'LINESeedKR-Rg';
+	position: absolute;
+	overflow: hidden;
+	min-width: 1500px;
+}
+
+.m_mrate {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 20px 30px;
+	box-sizing: border-box;
+	color: white;
+}
+
+.mmtitle {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 20px;
+}
+
+.mmsquare {
+	float: left;
+	width: 5px;
+	height: 40px;
+	background-color: white;
+}
+
+.mmtitle h2 {
+	float: left;
+	white-space: pre;
+	font-weight: bold;
+	margin: 0;
+}
+
+.m_mposter {
+	clear: both;
+	width: 40%;
+	height: 82%;
+	float: left;
+	display: flex;
+	align-items: center;
+	border: none;
+}
+
+.m_mposter img {
+	width: 100%;
+	height: 100%;
+}
+
+.m_mlist {
+	width: 60%;
+	float: left;
+	height: 82%;
+}
+
+.boldtext {
+	font-family: 'GangwonState';
+	font-weight: 600;
+	font-style: italic;
+	margin-right: 20px;
+}
+
+.m_mall {
+	height: 100%;
+	margin: 0;
+	padding: 20px 30px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.m_mall a {
+	text-decoration: none;
+	color: white;
+}
+
+.m_mall > a > li {
+	list-style: none;
+	font-size: 15pt;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	
+}
+.m_msearch {
+	width: calc(50% - 20px);
+	height: calc(100% - 40px); 
+	float: left;
+	margin: 20px 10px;
+	padding: 20px 5px 5px 20px;
+	box-sizing: border-box;
+	background-color: #209BF2;
+}
+
+.mm_1 {
+	height: 20%;
+}
+
+.mm_1 img {
+	width: 60%;
+}
+
+.mm_2 {
+	height: 50%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mm_2 form {
+	width: 450px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 5px;
+	border-bottom: 3px solid white;
+	overflow: hidden;
+}
+
+.mm_2 input {
+	width: 350px;
+	height: 50px;
+	border: 0;
+	background-color: #209BF2;
+	margin-right: 10px;
+}
+
+.mmbutton {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 0;
+	background-color: #209BF2;
+	border: none;
+	border-style: none;
+	font-size: 20pt;
+}
+
+.mmbutton:hover {
+	cursor: pointer;
+}
+
+.mm_2 input::placeholder {
+	color: white;
+	font-size: 14pt;
+}
+
+.mm_3 {
+	height: 30%;
+	display: flex;
+	align-items: self-end;
+	justify-content: right;
+}
+
+.mm_3 img {
+	width: 60%;
+}
+
+.c_topli li:hover {
+	text-decoration: underline;
+}
+
+.mmlist:hover {
+   font-size: 18pt;
+}
+
+.menu_nav{
+   height: 48px;
+   overflow: hidden;
+}

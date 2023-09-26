@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.web.admin.AdminDAO">
+
+	<select id="adminLogin" parameterType="Map" resultType="Map"> 
+		SELECT m_no, m_id, m_name, m_nickname, m_birth, m_status, count(*) as 'count' from members WHERE
+		m_id=#{id} AND m_pw=#{pw}
+	</select>
+
+
+
+	<select id="memberList" resultType="Map">
+		Select m_no, m_id, m_name,
+		m_nickname, m_email, m_join_dt, m_status, m_type
+		FROM members
+		ORDER BY m_status ASC
+	</select>
+	
+	
+<select id="memberSearch" resultType="Map">
+  Select m_no, m_id, m_name,
+  m_nickname, m_email, m_join_dt, m_status, m_type
+  FROM members
+  WHERE 
+  <choose>
+    <when test="search == 'nameSearch'">
+      m_name LIKE CONCAT(#{searchV}, '%')
+    </when>
+    <when test="search == 'idSearch'">
+      m_id LIKE CONCAT('%', #{searchV}, '%')
+    </when>
+  </choose>
+  ORDER BY m_status ASC
+</select>
+
+
+	<update id="gradeChange" parameterType="Map">
+		UPDATE members SET
+		m_status=#{grade} WHERE m_no=#{mno}
+	</update>
+
+
+	<select id="userpage" parameterType="Integer" resultType="Map">
+		SELECT m_no, m_name, m_nickname, m_id, m_birth, m_email, m_point, m_status, m_type
+		FROM members
+		WHERE m_no = #{mno}
+	</select>
+	
+	
+	
+	<update id="nicknameChange" parameterType="Map">
+		UPDATE members SET
+		m_nickname='제재된닉네임' WHERE m_no=#{id} AND m_nickname=#{before}
+	</update>
+	
+		<update id="pointChange" parameterType="Map">
+		UPDATE members SET
+		m_point=#{point} WHERE m_no=#{mno}
+	</update>
+	
+	<select id="totalMember" resultType="String">
+		SELECT COUNT(m_no) as total
+FROM members
+	</select>
+	
+	
+		<select id="totalIncome" resultType="String">
+		SELECT SUM(rp_pay) as totalincom
+FROM reservation_payment
+	</select>
+	
+	
+	
+	
+
+<select id="list" resultType="Movielist">
+
+SELECT mi.mv_poster,mi.mv_code,mi.mv_name,mi.mv_sdate,mi.mv_maker,ma.au_status,ma.au_acccnt
+FROM movie_info mi
+INNER JOIN movie_audience ma
+ON mi.mv_code = ma.mv_code
+ORDER BY mi.mv_sdate DESC 
+
+
+</select>
+
+<select id="list1" resultType="Map">
+
+SELECT mi.mv_poster,mi.mv_code,mi.mv_name,mi.mv_sdate,mi.mv_maker,ma.au_status,ma.au_acccnt
+FROM movie_info mi
+INNER JOIN movie_audience ma
+ON mi.mv_code = ma.mv_code
+ORDER BY mi.mv_idx DESC
+
+
+</select>
+
+
+<select id="list2" resultType="Map">
+
+SELECT mi.mv_poster,mi.mv_code,mi.mv_name,mi.mv_sdate,mi.mv_maker,ma.au_status,ma.au_acccnt
+FROM movie_info mi
+INNER JOIN movie_audience ma
+ON mi.mv_code = ma.mv_code
+WHERE ma.mv_code= ${mvcode}
+
+
+</select>
+
+
+<update id="mvupdate" parameterType="Map">
+
+
+		UPDATE movie_info
+		SET
+		
+		mv_poster = #{mv_poster},
+		mv_code = #{mv_code},
+		mv_name = #{mv_name},
+		mv_maker= #{mv_maker},
+		mv_sdate= #{mv_sdate}
+		
+
+		WHERE mv_code= #{mv_code}
+
+
+	</update>
+	
+	<update id="mvupdate1" parameterType="Map">
+
+
+		UPDATE movie_audience
+		SET
+
+		au_status =#{au_status},
+		au_acccnt = #{au_acccnt}
+
+		WHERE mv_code= #{mv_code}
+
+
+	</update>
+	
+	<select id="mvserch" resultType="Integer">
+SELECT COUNT(*)
+FROM movie_info mi
+INNER JOIN movie_audience ma
+ON mi.mv_code = ma.mv_code
+WHERE mi.mv_name = #{mvname}
+	
+	</select>
+	
+	<insert id="movieinsert" parameterType="Map">
+
+		INSERT INTO movie_audience (au_status,mv_code,au_acccnt)
+		VALUES (#{au_status},#{mv_code},#{au_acccnt})
+	</insert>
+	
+	<insert id="movieinsert1" parameterType="Map">
+
+		INSERT INTO movie_info (mv_code,mv_name,mv_sdate,mv_poster,mv_maker)
+		VALUES (#{mv_code},#{mv_name},#{mv_sdate},#{mv_poster},#{mv_maker})
+	</insert>
+	
+	<delete id="mvdelete" parameterType="String">
+	
+	DELETE FROM movie_info
+	WHERE mv_code = #{mvcode}
+	
+	</delete>
+	
+	<delete id="mvdelete1" parameterType="String">
+	
+	DELETE FROM movie_audience
+	WHERE mv_code = #{mvcode}
+	
+	</delete>
+	
+	<select id="mvcodeck" resultType="String">
+	
+	SELECT COUNT(*)
+	FROM movie_info mi
+	INNER JOIN movie_audience ma
+	on mi.mv_code=ma.mv_code
+	WHERE mi.mv_code=#{mvcode} AND ma.mv_code=#{mvcode}
+	
+	
+	</select>
+	
+	<update id="infoupdate" parameterType="Map">
+
+
+		UPDATE movie_info
+		SET
+		
+		mv_runtime = #{showTm},
+		mv_genre = #{genreNm},
+		mv_country = #{nations},
+		mv_grade= #{audits}
+	
+		WHERE mv_code= #{mv_code}
+
+
+	</update>
+	
+	
+	<select id="poster" resultType="String">
+		 SELECT mv_poster FROM movie_info WHERE REPLACE(mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+	</select>
+	
+	<select id="dbplot" resultType="String">
+		 SELECT mv_sinop FROM movie_info WHERE REPLACE(mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+	</select>
+	
+	<select id="dbvod" resultType="String">
+		 SELECT ma.au_trailer 
+ 		 FROM movie_audience ma
+		 INNER JOIN movie_info mi ON ma.mv_code = mi.mv_code
+		 WHERE REPLACE(mi.mv_name, ' ', '') =REPLACE(#{movieNm}, ' ', '')
+	</select>
+	
+<update id="kmdbupdate" parameterType="Map">
+
+		UPDATE movie_info
+		SET mv_poster =#{posters},
+			mv_sinop = #{plot},
+			mv_maker = #{company}
+
+		WHERE REPLACE(mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+
+	</update>
+	
+	<update id="kmdbupdate1" parameterType="Map">
+
+	UPDATE movie_audience AS a
+    INNER JOIN movie_info AS i ON a.mv_code = i.mv_code
+    SET a.au_trailer = #{vod},
+        a.au_keyword = #{keywords},
+        a.au_img = #{stlls}
+    WHERE REPLACE(i.mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+	</update>
+
+<select id="mainserch" resultType="Map">
+
+		SELECT
+		mi.mv_poster,mi.mv_code,mi.mv_name,mi.mv_sdate,mi.mv_maker,ma.au_status,ma.au_acccnt
+		FROM movie_info mi
+		INNER JOIN movie_audience ma
+		ON mi.mv_code = ma.mv_code
+		WHERE REPLACE(mi.mv_name, ' ', '') LIKE CONCAT('%', REPLACE(#{movieNm}, ' ', ''), '%')
+		ORDER BY mi.mv_idx DESC
+
+
+
+	</select>
+	
+	
+<insert id="insertrate">
+
+UPDATE movie_info
+SET mv_rate = (
+    SELECT MAX(mv_rate) + 1
+    FROM movie_info
+)
+WHERE mv_idx = (
+    SELECT MAX(mv_idx)
+    FROM movie_info
+)
+
+</insert>
+	
+	
+
+</mapper>

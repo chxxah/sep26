@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.web.login.LoginDAO">
+
+	<select id="login" parameterType="Map" resultType="Map"> 
+		SELECT m_no, m_id, m_name, m_nickname, m_birth, m_status, count(*) as 'count' from members WHERE
+		m_id=#{id} AND m_pw=#{pw}
+	</select>
+
+<select id="findId" parameterType="String" resultType="Map">
+SELECT m_id, m_name, m_type FROM members
+WHERE m_email = #{email}
+</select>
+
+<select id="findPw" parameterType="Map" resultType="Map">
+SELECT m_id, m_name, m_email, m_pw FROM members
+WHERE m_email =#{email} AND m_id=#{id}
+</select>
+
+<update id="temporaryPw" parameterType="Map">
+UPDATE members SET m_pw ='aassddff' WHERE m_id = #{m_id}
+</update>
+
+
+<select id="naverConnectionCheck" parameterType="Map" resultType="Map">
+SELECT m_id, m_name FROM members WHERE m_id = #{id} and m_name =#{name}
+</select>
+
+<select id="userNaverLoginPro" parameterType="Map" resultType="Map">
+SELECT m_no, m_id, m_name, m_nickname, m_birth,m_status FROM members WHERE m_id = #{id}</select>
+
+<insert id="setNaverConnection" parameterType="Map">
+INSERT INTO members(m_id, m_name, m_gender, m_birth, m_type)
+VALUES (#{id},#{name},#{gender},#{birthyear},'naver')
+</insert>
+
+<insert id="userNaverRegisterPro" parameterType="Map">
+INSERT INTO members (m_id, m_name, m_email, m_nickname, m_type) VALUES (#{id},#{name},#{email},#{nickName},'naver')
+</insert>
+
+
+
+</mapper>
+

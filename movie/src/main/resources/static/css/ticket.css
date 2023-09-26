@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+    
+body {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+width: 1500px;
+height:750px;
+	position:relative;
+}
+
+#title {
+	margin-left: 120px;
+}
+
+
+#box1 {
+	position: absolute;
+ top: 255px;
+  left: 120px;
+}
+
+#box2 {
+	position: absolute;
+ top: 255px;
+  left: 520px;
+  border-left: 1px solid rgba(0, 0, 0, .2);
+  padding-left:100px;
+}
+
+#movieName, #rsNum{
+	font-size: x-large;
+}
+
+#mvGrade, #theaterName, #date, #time, #seat, #people{
+	font-size: large;
+}
+
+#cancel, #okay {
+		width: 200px;
+	height: 70px;
+	border-radius: 10px;
+	border:none
+}
+
+#okay {
+		background-color:  #209BF2;
+	color:white;
+	position: absolute;
+ bottom: 20px;
+  left: 52%;
+	
+}
+
+#cancel {
+position: absolute;
+ bottom: 20px;
+  left: 37%;
+}
+
+button {
+	width: 300px;
+	height: 100px;
+	cursor: pointer;
+	font-size: medium;
+}
+
+#button:hover {
+	background: #209BF2;
+}
+
+#qrcode {
+	position: absolute;
+	right: 10%;
+	bottom: 20%;
+}

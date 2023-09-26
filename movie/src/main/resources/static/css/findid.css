@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/* * {
+	box-sizing: border-box; 전체에 박스사이징
+	outline: none; focus 했을때 테두리 나오게
+}
+ */
+body {
+	font-size: 14px;
+	background-color: #f5f6f7;
+	line-height: 1.5em;
+	color: #222;
+	margin: 20px;
+	padding-bottom: 10px;
+}
+
+.findid-box {
+	position: relative;
+	top: 50px;
+	width: 700px;
+	height: 500px;
+	border: 1px solid #C6C6C6;
+	border-radius: 5px;
+	margin: 0 auto; /*중앙 정렬*/
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+
+.msg_box {
+	color: red;
+
+}
+
+.logo {
+	/*로고는 이미지라 인라인 블록이니까 마진 오토 안됨 블록요소만 됨 */
+	display: block;
+	margin: 50px auto;
+}
+
+
+
+.email-area{
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 30px;
+}
+
+.fbtn {
+	padding: 0.6em 1em;
+	border-radius: 0.25em;
+	border: gray;
+	font-weight: 400;
+	background-color: #209BF2;
+	color: white;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+
+.abcd button{
+	padding: 0.6em 1em;
+	border-radius: 0.25em;
+	border: gray;
+	font-weight: 400;
+	background-color: #209BF2;
+	color: white;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	float :left;
+}
+
+
+.abcd .logbtn {
+   margin-right: 20px;
+}
+
+.abcd{
+    display: flex;
+    justify-content: center;
+}
+
+.aside_list {
+	margin-top: 16px;
+}

@@ -1,0 +1,401 @@
+@charset "UTF-8";
+
+html, body {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	width: 1500px;
+	height: 750px;
+	position: relative;
+}
+
+#title {
+	margin-left: 120px;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+	float: none;
+}
+/* container - body */
+#container {
+	width: 500px;
+	height: 700px;
+	padding: 20px;
+	margin: auto;
+}
+
+.slide_wrap {
+	position: relative;
+	width: 400px;
+	margin: 0 auto;
+	padding-bottom: 30px;
+}
+
+.slide_box {
+	width: 100%;
+	margin: auto;
+	overflow-x: hidden;
+}
+
+.slide_content {
+	display: table;
+	float: left;
+	width: 400px;
+	height: 200px;
+	text-align: center;
+}
+
+.slide_btn_box>.slide_btn_left {
+	position: relative;
+	left: -50px;
+	top: -160px;
+}
+
+.slide_btn_box>.slide_btn_right {
+	position: relative;
+	right: -320px;
+	top: -160px;
+}
+
+.slide_pagination {
+	position: absolute;
+	left: 50%;
+	bottom: 50px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	transform: translateX(-50%);
+}
+
+.slide_pagination .dot {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 0 5px;
+	overflow: hidden;
+	background: #ddd;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+.slide_pagination .dot.dot_active {
+	background: #333;
+}
+
+.slide_pagination .dot a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+button {
+	cursor: pointer;
+}
+
+#modal, #modal2, #modal3, #modal4, #modal_change1, #modal_change2 {
+	display: none;
+	position: fixed;
+	top: 100px;
+	left: 50px;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#modal_content3 {
+	height: 250px;
+}
+
+#modal_body3 {
+	height: 120px;
+}
+
+#modal_content4, #modal_content6 {
+	height: 450px;
+	width: 370px;
+}
+
+#modal_body4 {
+	text-align: center;
+	height: 450px;
+	position: relative;
+	padding: 30px;
+	border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+#cardSelect, #cardNum, #cardExp, #cardPw, #cardBir, #cardSelect2,
+	#cardNum2, #cardExp2, #cardPw2, #cardBir2 {
+	width: 250px;
+	height: 30px;
+}
+
+#modal h2 {
+	margin: 0;
+}
+
+#modal button, #modal2 button, #modal3 button, #modal4 button, #modal5 button
+	{
+	display: inline-block;
+	width: 100px;
+	margin-left: calc(100% - 100px - 10px);
+}
+
+.modal-header {
+	min-height: 16.43px;
+	padding: 20px;
+	border-bottom: 1px solid #e5e5e5
+}
+
+.modal-title {
+	margin: 0;
+	line-height: 1;
+}
+
+.modal-code {
+	padding: 20px;
+}
+
+.modal_content {
+	width: 700px;
+	height: 500px;
+	max-width: 700px;
+	position: relative;
+	overflow: hidden;
+	margin: 100px auto;
+	background: #fff;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 1px solid #999;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 6px;
+	outline: 0;
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, .5)
+}
+
+.modal-body {
+	position: relative;
+	padding: 30px;
+	height: 300px;
+	max-height: 300px;
+	overflow-y: auto;
+	border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+.modal-foot {
+	border-top: 1px solid rgba(0, 0, 0, .2);
+	position: sticky;
+	background-color: #fff;
+}
+
+.modal_layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
+
+#couponCode, #admCode {
+	width: 390px;
+	height: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#couponCheck, #admCheck {
+	position: absolute;
+	top: 90px;
+	right: 80px;
+	background-color: #209BF2;
+	color: white;
+	border: none;
+	border-radius: 2px;
+	height: 23px;
+}
+
+#usePoint {
+	width: 250px;
+	height: 30px;
+	margin-left: 7px;
+}
+
+#couponCancel {
+	border-radius: 5px;
+	border: none;
+	clear: both;
+	margin-left: 950px;
+	margin-top: 10px;
+}
+
+/* 할인수단 버튼 */
+#modal_open_btn, #modal_open_btn2, #modal_open_btn3 {
+	width: 60%;
+	height: 50px;
+	text-align: left;
+	float: left;
+	background-color: white;
+	font-size: medium;
+	margin-left: 120px;
+	border-color: lightgray;
+	font-weight: bold;
+
+}
+
+#modal_open_btn4, #modal_open_btn5, #cancel {
+	width: 100px;
+	height: 100px;
+	clear: left;
+	border-radius: 10px;
+	border: none;
+	position: absolute;
+	bottom: 20px;
+	font-size: medium;
+}
+
+#modal_open_btn4 {
+	background-color: #209BF2;
+	color: white;
+	left: 53.5%;
+}
+
+#modal_open_btn5 {
+	background-color: #209BF2;
+	color: white;
+	left: 61%;
+}
+
+#cancel {
+	left: 46%;
+}
+
+#modal_close_btn, #modal_close_btn2 {
+	position: absolute;
+	bottom: -50px;
+	left: -320px;
+}
+
+#modal_submit_btn, #modal_submit_btn2 {
+	position: absolute;
+	bottom: -50px;
+	left: -210px;
+}
+
+#modal_close_btn3 {
+	position: absolute;
+	bottom: -50px;
+	left: -320px;
+}
+
+#modal_submit_btn3 {
+	position: absolute;
+	bottom: -50px;
+	left: -210px;
+}
+
+#modal_submit_btn4, #modal_submit_btn6 {
+	position: absolute;
+	bottom: 80px;
+	left: -57px;
+}
+
+#modal_close_btn4, #modal_close_btn6 {
+	position: absolute;
+	bottom: 80px;
+	left: -172px;
+}
+
+#modal_submit_btn5 {
+	position: absolute;
+	bottom: 20px;
+	left: -225px;
+}
+
+#modal_close_btn5 {
+	position: absolute;
+	bottom: 20px;
+	left: -333px;
+}
+
+#agreeAll {
+	position: absolute;
+	bottom: 12%;
+	left: 40%;
+}
+
+#discountList {
+	float: right;
+	position: absolute;
+	right: 33%;
+	top:220px;
+	font-weight: bold;
+}
+
+#price {
+	float: left;
+	position: absolute;
+	left: 120px;
+	bottom: 20px;
+	font-weight: bold;
+}
+
+#amount {
+	font-size: x-large;
+}
+
+#payment {
+	position: absolute;
+	right: 33%;
+	bottom: 20%;
+	font-weight: bold;
+}
+
+.submit_btn {
+	background-color: #209BF2;
+	color: white;
+	border-radius: 2px;
+	border: none;
+	height: 23px;
+}
+
+.cancel_btn {
+	border-radius: 2px;
+	border: none;
+	height: 23px;
+}
+
+#movieInfo {
+	border: 2px solid;
+	width: 300px;
+	height: 550px;
+	padding: 20px;
+	border-radius: 15px;
+	float: right;
+	position: relative;
+	right: 7%;
+	top: -50px;
+	background-color: #424242;
+	color: white;
+	text-align: left;
+}
+
+#movieName {
+	font-size: 20pt;
+	font-weight: bold;
+}

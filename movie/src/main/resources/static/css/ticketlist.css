@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+
+#title {
+	margin-left: 120px;
+}
+ 
+    
+button {
+	width: 700px;
+	height: 120px;
+	background-color: white;
+		border-radius: 20px;
+margin-left: 25%;
+cursor: pointer;
+}
+
+#list {
+	margin-top: 5%;
+
+}
+
+#button1:hover {
+	background: #209BF2;
+	color: white;
+}
+
+
+
+.content ul {
+	width: 1000px;
+	height: 41px;
+	margin: 30px auto;
+	font-size: 13pt;
+	border-bottom: 1px solid;
+	padding: 0px;
+}
+
+.content li {
+	width: 250px;
+	display: inline-block;
+	height: 41px;
+	line-height: 40px;
+	padding-left: 10px;
+	padding-right: 20px;
+	text-align: center;
+	text-decoration: none;
+	font-weight:bold;
+   
+}
+
+.nowTicket {
+	margin-left:20%;
+}
+
+
+.on {
+	height: 42px;
+	background-color: white;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-top: 1px solid;
+}

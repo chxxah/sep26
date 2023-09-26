@@ -1,0 +1,199 @@
+@charset "UTF-8";
+/* 첫 번째 div-cell */
+
+/* 일곱 번째 div-cell */
+
+html{
+	
+ width:	1800px;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	width:1800px;
+}
+
+.article{
+
+	width: 1300px;
+	height: 830px;
+	
+}
+
+.div-cell.au_acccnt {
+    width: 90px; /* 원하는 가로 길이 */
+}
+
+
+.div-table{
+	margin: 0 auto;
+	display: table;
+	
+	height: 800px;
+}
+
+.div-row{
+	display: table-row;
+	height: 30px;
+
+}
+
+.div-cell{
+	display: table-cell;
+	 text-align: center; /* 수평 가운데 정렬 */
+    vertical-align: middle; /* 수직 가운데 정렬 */
+}
+
+.table-head{
+	background-color: gray;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid gray;
+	height: 30px;
+}
+
+.divall{
+	
+	height: 150px;
+	}
+
+h3 {
+text-align: center;
+}
+
+.button {
+  width: 100%; 
+  padding: 10px;
+
+}
+
+.update {
+	  background-color:sandybrown; 
+	
+}
+
+.delete{
+	background-color: crimson;
+	
+	
+}
+
+.div-row1{
+	display: table-row;
+	height: 50px;
+	line-height: 30px;
+}
+
+.main{
+	
+	width: 1300px;
+	height: 800px;
+	float: right;
+}
+
+
+.container{
+	width: 1500px;
+	height: 800px;
+	margin-left: 20px;
+	
+	
+}
+
+.cell0{
+	
+	width: 70px;
+}
+
+.cell1{
+	
+	width: 150px;
+}
+
+.cell2{
+	
+	width: 130px;
+}
+.cell3{
+	
+	width: 200px;
+}
+.cell4{
+	
+	width: 130px;
+}
+.cell5{
+	
+	width: 200px;
+}
+.cell6{
+	
+	width: 200px;
+}
+.cell7{
+	
+	width: 170px;
+}
+.cell8{
+	width: 120px;
+	
+}
+.cell9{
+	width: 120px;
+	
+}
+
+.table-bottom {
+	height:149px;
+	margin-top: 3px;
+}
+
+.pagination-link {
+    font-size: 18px; /* 숫자 크기를 조정하세요 */
+    padding: 5px 10px; /* 숫자 주변의 여백 조정 */
+    margin: 0 5px; /* 숫자 간격 조정 */
+    
+    border-radius: 4px; /* 테두리 모서리 둥글게 (선택 사항) */
+    text-align: center; /* 가운데 정렬 */
+    text-decoration: none;
+}
+
+.current-page {
+    font-weight: bold; /* 현재 페이지 숫자 강조 (선택 사항) */
+    background-color: #007bff; /* 현재 페이지 배경색 지정 (선택 사항) */
+    color: #fff; /* 현재 페이지 텍스트 색상 지정 (선택 사항) */
+    
+}
+
+.deco{
+	text-decoration: none;
+	
+	
+}
+
+.pagination{
+	margin-top: 30px;
+	margin-left: 500px;
+}
+
+.moviespan {
+	margin-left: 300px;
+}
+.moviebtn{
+	margin-left:20px;
+	line-height: 30px;
+
+}
+
+
+.edit-form{
+	margin: 0 auto;
+	display: table;
+	
+
+}
+.poster {
+	height: 149px;
+}
+

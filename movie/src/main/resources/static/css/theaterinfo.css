@@ -1,0 +1,303 @@
+@charset "UTF-8";
+
+.slider img {
+	padding: 20px;
+	width: 1050px;
+	height: 600px;
+	box-sizing: border-box;
+}
+
+.box {
+	width: 1050px;
+	margin: 0 auto;
+}
+/* slider */
+.sliderWrap {
+	position: relative;
+	padding: 50px;
+}
+
+.sliderWrap>div {
+	display: none;
+}
+
+.sliderWrap>div:first-child {
+	display: block;
+}
+
+.sliderWrap .slider {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.sliderWrap .slider img {
+	vertical-align: top;
+}
+
+.sliderWrap .slider span {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	color: #fff;
+}
+
+/* aka춘식 */
+.menubar {
+	font-family: 'Secular One', sans-serif;
+	display: flex;
+	width: 1000px;
+	margin: 0 auto;
+	flex-direction: row;
+	color: #209BF2;
+	font-weight: bolder;
+}
+
+.mhome, .mimax, .mtdx1, .mtdx2, .mfdx, .mseat {
+	padding: 8px;
+	text-align: center;
+	border-bottom: 3px solid #77C2F7;
+	width: 20%;
+	background-color: #1D1C1C;
+}
+
+.menubar div:hover {
+	color: #1D1C1C;
+	background-color: #209BF2;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.selected {
+	color: #1D1C1C;
+	background-color: #209BF2;
+	font-weight: bolder;
+}
+
+.IMAXDetail {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+p {
+	font-family: 'Secular One', sans-serif;
+	color: #F3F3F3;
+	font-weight: bolder;
+}
+
+.imaxin1 {
+	background-image: url("../img/IMAX1.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 690px;
+	height: 260px;
+	border-radius: 17px;
+	position: relative;
+}
+
+.imaxin2 {
+	background-image: url("../img/IMAX3.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 290px;
+	height: 260px;
+	border-radius: 17px;
+	position: relative;
+}
+
+.imaxin3 {
+	background-image: url("../img/IMAX2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 290px;
+	height: 260px;
+	border-radius: 17px;
+	position: relative;
+}
+
+.imaxin4 {
+	background-image: url("../img/IMAX.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 675px;
+	height: 260px;
+	border-radius: 17px;
+	position: relative;
+}
+
+.row div {
+	display: inline-block;
+	margin: 15px;
+}
+
+.link {
+	width: 100%;
+	height: 100%;
+	font-size: 15pt;
+}
+
+.tdxdetail1 {
+	background-image: url("../img/TDX1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 1000px;
+	height: 330px;
+	border-radius: 17px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.tdxdetail2 {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+.tdx-center {
+	display: inline-block;
+	text-align: center;
+}
+
+.tdx-center img {
+	width: 312px;
+	height: 240px;
+	border-radius: 17px;
+	margin: 15px;
+}
+
+.fdxdetail2 {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+.fdxdetail1 {
+	background-image: url("../img/FDX.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 1000px;
+	height: 330px;
+	border-radius: 17px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.fdx-center {
+	display: inline-block;
+	text-align: center;
+}
+
+.fdx-center img {
+	width: 485px;
+	height: 240px;
+	margin: 15px;
+	border-radius: 17px;
+}
+
+.seatdetail {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+.seat-center {
+	display: flex; /* 사진을 가로로 나란히 정렬하기 위해 flex 사용 */
+	flex-wrap: wrap; /* 화면 크기에 맞게 자동으로 줄 바꿈 */
+	justify-content: center; /* 가운데 정렬 */
+}
+
+.seat-item {
+	width: 45%; /* 각 사진 아이템의 너비를 조정 (2개씩 나오도록) */
+	margin: 15px;
+	border-radius: 17px;
+	text-align: left; /* 텍스트 왼쪽 정렬 */
+	box-shadow: 15px 15px 15px rgba(0, 0, 0, .3);
+	background-color: #373637;
+}
+
+.seat-item img {
+	width: 270px;
+	height: 230px;
+	border-radius: 17px;
+}
+
+.description {
+	width: 200px;
+	height: 100%;
+	display: block;
+	font-weight: bold;
+	text-align: center;
+	float: right;
+	color: white;
+	border-left: 2px dotted;
+	box-sizing: border-box;
+}
+
+.siksik {
+	width: calc(100%-20px);
+	margin: 20px 10px 25px 10px;
+	
+}
+
+.sikinfo {
+	height: 30px;
+	font-size: 15pt;
+	white-space: pre;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 5px;
+}
+
+.sikimg {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align: center;
+	width: 100%;
+	height: 25px;
+}
+
+.sikseat {
+	font-size: 11pt;
+	white-space: pre;
+	line-height: 25px;
+	display: inline-block;
+}
+
+.sikimg img {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+}
+
+.sikprice {
+	height: 30px;
+	line-height: 30px;
+	font-size: 11pt;
+	clear: both;
+	margin: 5px 20px;
+}
+
+.siktitle {
+	float: left;
+	white-space: pre;
+	margin: 0 20px;
+}
+
+.sikcont {
+	float: left;
+	font-weight: 500;
+}

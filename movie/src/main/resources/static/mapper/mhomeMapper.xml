@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.web.mhome.MhomeDAO">
+
+
+
+
+
+	<insert id="insertMovie" parameterType="MovieDTO">
+
+		INSERT INTO movie_info (mv_code,mv_name,mv_sdate,mv_audi_d_cnt)
+		VALUES (#{movieCd}, #{movieNm}, #{openDt}, #{audiCnt} )
+
+	</insert>
+
+	<insert id="insertAudience" parameterType="MovieDTO">
+
+		INSERT INTO movie_audience (mv_code,au_acccnt,au_audi_incre,au_rank_status)
+		VALUES (#{movieCd},#{audiAcc},#{audiInten},#{rankOldAndNew})
+
+	</insert>
+
+
+	<select id="findMovieByMovieCd" resultType="String">
+		SELECT * FROM movie_info WHERE mv_code = #{movieCd}
+	</select>
+
+	<select id="findMovieByMovieCd1" resultType="String">
+		SELECT * FROM movie_audience WHERE mv_code = #{movieCd}
+	</select>
+
+	<update id="updateMovie" parameterType="MovieDTO">
+		UPDATE movie_info
+
+		SET
+		mv_audi_d_cnt = #{audiCnt}
+
+		WHERE
+		mv_code= #{movieCd}
+
+
+	</update>
+
+	<update id="updateAudience" parameterType="MovieDTO">
+		UPDATE movie_audience
+		SET
+
+		au_rank_status = #{rankOldAndNew},
+		au_audi_incre = #{audiInten},
+		au_acccnt = #{audiAcc}
+
+		WHERE mv_code= #{movieCd}
+
+
+	</update>
+
+	<update id="infoupdate" parameterType="MovieDTO">
+
+		UPDATE movie_info
+		SET
+		mv_country = #{nations},
+		mv_maker = #{companys},
+		mv_grade = #{audits},
+		mv_runtime = #{showTm},
+		mv_genre = #{genreNm}
+
+		WHERE mv_code = #{movieCd}
+
+	</update>
+
+	<update id="infoupdate1" parameterType="MovieDTO">
+
+
+
+		UPDATE movie_audience
+		SET au_status =#{prdtStatNm}
+
+		WHERE mv_code = #{movieCd}
+
+	</update>
+	
+	<select id="MovieCd" resultType="String">
+		SELECT mv_code FROM movie_info
+	</select>
+	
+	<select id="moviename" resultType="String">
+		SELECT mv_name FROM movie_info
+	</select>
+
+	<update id="kmdbupdate" parameterType="MovieDTO">
+
+		UPDATE movie_info
+		SET mv_poster =#{posters},
+			mv_sinop = #{plot}
+
+		WHERE REPLACE(mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+
+	</update>
+	
+	<update id="kmdbupdate1" parameterType="MovieDTO">
+
+	UPDATE movie_audience AS a
+    INNER JOIN movie_info AS i ON a.mv_code = i.mv_code
+    SET a.au_trailer = #{vod},
+        a.au_keyword = #{keywords},
+        a.au_img = #{stlls}
+    WHERE REPLACE(i.mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+	</update>
+	
+	
+	<select id="list" resultType="Movie">
+	
+	SELECT mi.mv_code,.mi.mv_name,mi.mv_grade,mi.mv_poster,mi.mv_sdate,mi.mv_rate,
+		   mi.mv_gradeimg,ma.au_status
+	FROM movie_info mi 
+	inner join movie_audience ma ON mi.mv_code = ma.mv_code
+	ORDER BY mi.mv_rate
+
+	
+	</select>
+	
+	<select id="list1" resultType="Movie">
+	
+	SELECT mi.mv_code,.mi.mv_name,mi.mv_grade,mi.mv_poster,mi.mv_sdate,mi.mv_rate,
+			mi.mv_gradeimg,ma.au_status
+	FROM movie_info mi 
+	inner join movie_audience ma ON mi.mv_code = ma.mv_code
+	ORDER BY mi.mv_rate
+	</select>
+	
+	<select id="list2" resultType="Movie">
+	
+	SELECT mi.mv_code,mi.mv_name,mi.mv_grade,mi.mv_poster,mi.mv_sdate,mi.mv_rate,
+		mi.mv_gradeimg,ma.au_status
+	FROM movie_info mi
+	JOIN movie_audience ma 
+	ON mi.mv_code = ma.mv_code
+	ORDER BY ma.au_acccnt desc
+
+	
+	</select>
+	
+		<select id="list3" resultType="Movie">
+	
+	SELECT mi.mv_code,mi.mv_name,mi.mv_grade,mi.mv_poster,mi.mv_sdate,mi.mv_rate,
+	mi.mv_gradeimg,ma.au_status
+	FROM movie_info mi
+	JOIN movie_audience ma 
+	ON mi.mv_code = ma.mv_code
+	ORDER BY mi.mv_sdate desc
+	</select>
+	
+	<select id="list4" resultType="Movie">
+	
+	SELECT mi.mv_code,mi.mv_name,mi.mv_grade,mi.mv_poster,mi.mv_sdate,mi.mv_rate,
+	mi.mv_gradeimg,ma.au_status
+	FROM movie_info mi
+	JOIN movie_audience ma 
+	ON mi.mv_code = ma.mv_code
+	WHERE ma.au_status ='개봉'
+	
+	</select>
+	
+	<select id="list5" resultType="Movie">
+	
+	SELECT mi.mv_code,mi.mv_name,mi.mv_grade,mi.mv_poster,mi.mv_sdate,mi.mv_rate,
+	mi.mv_gradeimg,ma.au_status
+	FROM movie_info mi
+	JOIN movie_audience ma 
+	ON mi.mv_code = ma.mv_code
+	WHERE ma.au_status ='개봉예정'
+	
+	</select>
+	
+	<select id="mvruntime" resultType="String">
+		SELECT mv_runtime FROM movie_info
+	</select>
+	
+	<select id="poster" resultType="String">
+		 SELECT mv_poster FROM movie_info WHERE REPLACE(mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+	</select>
+	
+	<select id="dbplot" resultType="String">
+		 SELECT mv_sinop FROM movie_info WHERE REPLACE(mv_name, ' ', '') = REPLACE(#{movieNm}, ' ', '')
+	</select>
+	
+	<select id="dbvod" resultType="String">
+		 SELECT ma.au_trailer 
+ 		 FROM movie_audience ma
+		 INNER JOIN movie_info mi ON ma.mv_code = mi.mv_code
+		 WHERE REPLACE(mi.mv_name, ' ', '') =REPLACE(#{movieNm}, ' ', '')
+	</select>
+	
+
+
+
+</mapper>
+

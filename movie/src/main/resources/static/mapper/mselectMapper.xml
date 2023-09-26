@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.web.mselect.MselectDAO">
+
+	<select id="movie" resultType="Map">
+		SELECT mi.mv_name, mi.mv_gradeimg, mi.mv_code
+		FROM movie_info mi
+		JOIN movie_audience ma ON mi.mv_code = ma.mv_code
+		WHERE au_status="개봉"
+	</select>
+	
+	<select id="mv_code" parameterType="String" resultType="Map">
+		SELECT *
+		FROM movie_info
+		WHERE mv_code = #{mv_code}
+	</select>
+	
+	<select id="theater" resultType="Map">
+		SELECT DISTINCT th_area,
+			(SELECT COUNT(DISTINCT(th_city)) FROM theater_info WHERE th_area = '서울') AS seoul,
+			(SELECT COUNT(DISTINCT(th_city)) FROM theater_info WHERE th_area = '경기/인천') AS incheon,
+			(SELECT COUNT(DISTINCT(th_city)) FROM theater_info WHERE th_area = '강원') AS gangwon,
+			(SELECT COUNT(DISTINCT(th_city)) FROM theater_info WHERE th_area = '대전/충청') AS daejeon,
+			(SELECT COUNT(DISTINCT(th_city)) FROM theater_info WHERE th_area = '부산/대구/경상') AS busan,
+			(SELECT COUNT(DISTINCT(th_city)) FROM theater_info WHERE th_area = '광주/전라') AS gwangju
+		FROM theater_info
+	</select>
+	
+	<select id="selmovielist" parameterType="String" resultType="Map">
+		SELECT mv_idx, mv_name, mv_grade, mv_poster, mv_sdate, mv_runtime, mv_rate, mv_genre, mv_gradeimg
+		FROM movie_info
+		WHERE mv_name = #{selmovie}
+	</select>
+	
+	<select id="selcitylist" parameterType="String" resultType="Map">
+		SELECT DISTINCT th_city
+		FROM theater_info
+		WHERE th_area = #{selarea}
+	</select>
+	
+	<select id="imaxlist" parameterType="String" resultType="Map">
+		SELECT DISTINCT th_city
+		FROM theater_info
+		WHERE th_kind = #{selimax}
+	</select>
+	
+	<select id="selspecial" parameterType="String" resultType="String">
+		SELECT DISTINCT th_area
+		FROM theater_info
+		WHERE th_city = #{selectimax}
+	</select>
+	
+	<select id="movietime" parameterType="Map" resultType="Map">
+		SELECT DISTINCT ti.th_seatcnt, t.mv_idx, t.ms_idx, TIME_FORMAT(t.ms_stime, '%H:%i') as ms_stime, TIME_FORMAT(t.ms_etime, '%H:%i') as ms_etime, t.ms_combine, t.mv_name, ti.th_kind,
+			(	SELECT COUNT(*) 
+			    FROM screen_seat 
+			    WHERE ms_idx = t.ms_idx AND ss_res = 'A'
+			) AS countseat
+		FROM timetableview t
+		JOIN theater_info ti ON ti.th_combine = t.ms_combine
+		WHERE ti.th_city = #{selCity} AND t.mv_name = #{selFilm}
+	</select>
+	
+	<select id="specialtime" parameterType="Map" resultType="Map">
+		SELECT DISTINCT ti.th_seatcnt, t.mv_idx, t.ms_idx, TIME_FORMAT(t.ms_stime, '%H:%i') as ms_stime, TIME_FORMAT(t.ms_etime, '%H:%i') as ms_etime, t.ms_combine, t.mv_name, ti.th_area, ti.th_kind,
+			(	SELECT COUNT(*) 
+			    FROM screen_seat 
+			    WHERE ms_idx = t.ms_idx AND ss_res = 'A'
+			) AS countseat
+		FROM timetableview t
+		JOIN theater_info ti ON ti.th_combine = t.ms_combine
+		WHERE ti.th_city = #{selCity} AND t.mv_name = #{selFilm} AND ti.th_kind = #{selKind}
+	</select>
+	
+	<select id="mlist" resultType="Map">
+		SELECT *
+		FROM movie_info
+		limit 0,5
+	</select>
+	
+</mapper>
